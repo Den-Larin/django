@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Psychology Blog
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block body %}
+  <section id="welcome">
+    <header>
+      <img src="{% static "blog/images/Den.jpg" %}" alt="Denys - The Author Of This Blog" />
+      <h2>PSYCHOLOGY BLOG</h2>
+    </header>
+    <P>Hi, I am Denys and I love to blog about psychology!</P>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+      {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Our blog of creations is for those who would like to better understand themselves, develop emotionally and psychologically, and also know the benefits of important nutrition about their inner life.
+    </p>
+    <p>
+      Our goal is to help you understand the complex aspects of psychology and find practical tools for their improvement.
+    </p>
+  </section>
+{% endblock %}
